@@ -53,7 +53,7 @@ namespace EventHook
             this.factory = factory;
         }
 
-        private bool isRunning { get; set; }
+        public bool isRunning { get; set; }
         public event EventHandler<KeyInputEventArgs> OnKeyInput;
 
         /// <summary>
@@ -81,9 +81,10 @@ namespace EventHook
                         TaskCreationOptions.None,
                         factory.GetTaskScheduler()).Wait();
 
+                    isRunning = true;
                     Task.Factory.StartNew(() => ConsumeKeyAsync());
 
-                    isRunning = true;
+                    Console.WriteLine("Keyboard watcher started {0}", isRunning);
                 }
             }
         }
@@ -115,6 +116,7 @@ namespace EventHook
                     keyQueue.Enqueue(false);
                     isRunning = false;
                     taskCancellationTokenSource.Cancel();
+                    Console.WriteLine("Keyboard watcher stopped {0}", isRunning);
                 }
             }
         }

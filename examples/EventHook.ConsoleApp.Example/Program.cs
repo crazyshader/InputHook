@@ -1,9 +1,40 @@
 ﻿using System;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace EventHook.ConsoleApp.Example
 {
+    public class WinAPI
+    {
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern int GetWindowTextLength(IntPtr hWnd);
+    }
+
     internal class Program
     {
+        public static string GetActiveWindowTitle()
+        {
+            // 获取当前活动窗口的句柄
+            IntPtr handle = WinAPI.GetForegroundWindow();
+
+            // 获取窗口标题的长度，加1是为了容纳终止符
+            int length = WinAPI.GetWindowTextLength(handle) + 1;
+
+            // 创建一个StringBuilder来接收窗口标题
+            StringBuilder sb = new StringBuilder(length);
+
+            // 获取窗口标题
+            WinAPI.GetWindowText(handle, sb, length);
+
+            return sb.ToString();
+        }
+
         private static void Main(string[] args)
         {
             var eventHookFactory = new EventHookFactory();
@@ -19,7 +50,7 @@ namespace EventHook.ConsoleApp.Example
             mouseWatcher.Start();
             mouseWatcher.OnMouseInput += (s, e) =>
             {
-                Console.WriteLine("Mouse event {0} at point {1},{2}", e.Message.ToString(), e.Point.x, e.Point.y);
+                Console.WriteLine("Mouse event {0} at point {1},{2} - {3}", e.Message.ToString(), e.Point.x, e.Point.y, GetActiveWindowTitle());
             };
 
             var clipboardWatcher = eventHookFactory.GetClipboardWatcher();

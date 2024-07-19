@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{C622ACD2-76FB-4B6D-844D-C0C406C73214}"
 EndProject
@@ -23,8 +23,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHook.ConsoleApp.Example", "..\examples\EventHook.ConsoleApp.Example\EventHook.ConsoleApp.Example.csproj", "{0075830E-89B6-4E6B-9C49-CA377746AB4C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHook.WinForms.Example", "..\examples\EventHook.WinForms.Example\EventHook.WinForms.Example.csproj", "{17264D8C-CF5A-4032-9E70-090525D574F2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3847A7F4-3F6B-4626-AF4C-8FDFBA6165F2} = {3847A7F4-3F6B-4626-AF4C-8FDFBA6165F2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHook.WPF.Example", "..\examples\EventHook.WPF.Example\EventHook.WPF.Example.csproj", "{41F4FF6F-0E65-439C-9091-BA2C8E25BAE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiamiTool", "MiamiTool\MiamiTool.csproj", "{01E67381-54E4-4500-B159-A10F5D1038DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +53,10 @@ Global
 		{41F4FF6F-0E65-439C-9091-BA2C8E25BAE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41F4FF6F-0E65-439C-9091-BA2C8E25BAE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41F4FF6F-0E65-439C-9091-BA2C8E25BAE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01E67381-54E4-4500-B159-A10F5D1038DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01E67381-54E4-4500-B159-A10F5D1038DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01E67381-54E4-4500-B159-A10F5D1038DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01E67381-54E4-4500-B159-A10F5D1038DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +65,7 @@ Global
 		{0075830E-89B6-4E6B-9C49-CA377746AB4C} = {C622ACD2-76FB-4B6D-844D-C0C406C73214}
 		{17264D8C-CF5A-4032-9E70-090525D574F2} = {C622ACD2-76FB-4B6D-844D-C0C406C73214}
 		{41F4FF6F-0E65-439C-9091-BA2C8E25BAE0} = {C622ACD2-76FB-4B6D-844D-C0C406C73214}
+		{01E67381-54E4-4500-B159-A10F5D1038DE} = {C622ACD2-76FB-4B6D-844D-C0C406C73214}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E257FE38-E63D-4F7E-A2BD-C6DD64CF3412}

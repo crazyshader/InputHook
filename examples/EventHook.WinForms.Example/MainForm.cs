@@ -68,5 +68,10 @@ namespace EventHook.WinForms.Example
 
             eventHookFactory.Dispose();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
